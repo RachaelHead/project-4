@@ -2,11 +2,17 @@ body{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 50px, 500px;
+  font-family: 'Noto Sans SC', sans-serif;
 }
 
 h1{
   grid-column: 1/3;
   grid-row: 1/2;
+  font-size: 40px;
+}
+
+p{
+  font-size: 12px;
 }
 
 #map-intro{
@@ -30,7 +36,6 @@ h1{
 #pano-intro{
   grid-column: 1/3;
   grid-row: 4/5;
-  height:200px;
 }
 
 #pano{
@@ -53,6 +58,7 @@ h1{
 #met{
   grid-column: 1/3;
   grid-row: 7/8;
+  height:500px;
 }
 
 .flex{

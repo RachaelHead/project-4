@@ -161,7 +161,7 @@ $(function(){
 
   console.log('scripts loaded');
 
-  //urls of Incan objects
+  //urls of textiles
   var object1= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/319574';
   var object2= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/319524';
   var object3= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/307846';
@@ -185,38 +185,136 @@ $(function(){
   var object21= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/316926';
   var metObjectArray = [object1, object2, object3, object4, object5, object6, object7, object8, object9, object10, object11, object12, object13, object14, object15, object16, object17, object18, object19, object20, object21];
 
-  $('#textiles-button').click(function(){
-      console.log('button clicked');
+  // Array of Gold objects
+  var gold1= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/312801';
+  var gold2= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/309943';
+  var gold3= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/309960';
+  var gold4= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/315622';
+  var gold5= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/308123';
+  var gold6= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/309944';
+  var gold7= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/315492';
+  var gold8= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/312558';
+  var gold9= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/317753';
+  var gold10= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/313273';
+  var gold11= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/313271';
+  var gold12= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/313223';
+  var metGoldArray = [gold1, gold2, gold3, gold4, gold5, gold6, gold7, gold8, gold9, gold10, gold11, gold12];
+
+  // Array of ceramic objects
+  var ceramic1= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/313341';
+  var ceramic2= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/310702';
+  var ceramic3= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/310520';
+  var ceramic4= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/319319';
+  var ceramic5= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/317751';
+  var ceramic6= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/313274';
+  var ceramic7= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/313289';
+  var ceramic8= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/313205';
+  var ceramic9= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/310233';
+  var ceramic10= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/309389';
+  var ceramic11= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/309401';
+  var ceramic12= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/309753';
+  var ceramic13= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/310205';
+  var metCeramicsArray = [ceramic1, ceramic2, ceramic3, ceramic4, ceramic5, ceramic6, ceramic7, ceramic8, ceramic9, ceramic10, ceramic11, ceramic12, ceramic13];
 
 
+    //click TEXTILES button
+    $('#textiles-button').click(function(){
+        console.log('button clicked');
+    // variables
+    var data = [];
+    var html = '';
+    //for loop running through the array of textiles
+    for (i=0;i<metObjectArray.length; i++){
+      $.ajax({
+        type: 'GET',
+        url: metObjectArray[i],
+        data: data,
+        dataType: 'json',
+        async: true,
+        success: function(data){
+          console.log(data);
+
+          html += '<div class="object">';
+          html +=   '<div class="image">';
+          html +=     '<img src="' + data.primaryImage + '"></img>';
+          html +=   '</div>';
+          html += '</div>';
+
+          $("#met").html(html);
+
+        }//close success
+      });// close ajax
+    }//close for loop
+  });// close click function
+
+
+
+  //click GOLD button
+
+
+  $('#gold-button').click(function(){
+      console.log('gold button clicked');
+  //variables
   var data = [];
   var html = '';
+  //for loop looping through metGoldArray
+    for (i=0;i<metGoldArray.length; i++){
+      $.ajax({
+        type: 'GET',
+        url: metGoldArray[i],
+        data: data,
+        dataType: 'json',
+        async: true,
+        success: function(data){
+          console.log(data);
 
-  for (i=0;i<metObjectArray.length; i++){
+          html += '<div class="object">';
+          html +=   '<div class="image">';
+          html +=     '<img src="' + data.primaryImage + '"></img>';
+          html +=   '</div>';
+          html += '</div>';
 
-    $.ajax({
-      type: 'GET',
-      url: metObjectArray[i],
-      data: data,
-      dataType: 'json',
-      async: true,
-      success: function(data){
-        console.log(data);
+          $("#met").html(html);
 
-        html += '<div class="object">';
-        html +=   '<div class="image">';
-        html +=     '<img src="' + data.primaryImage + '"></img>';
-        html +=   '</div>';
-        html += '</div>';
+        }//close success
+      });// close ajax
+    }//close for loop
+  });// close click function
 
-        $("#met").html(html);
 
-      }//close success
 
-    });// close ajax
+  //click CERAMICS button
 
-  }//close for loop
+  $('#ceramics-button').click(function(){
+      console.log('gold button clicked');
+  //variables
+  var data = [];
+  var html = '';
+  //for loop looping through metCeramicsArray
+    for (i=0;i<metCeramicsArray.length; i++){
+      $.ajax({
+        type: 'GET',
+        url: metCeramicsArray[i],
+        data: data,
+        dataType: 'json',
+        async: true,
+        success: function(data){
+          console.log(data);
 
-});// close click function
+          html += '<div class="object">';
+          html +=   '<div class="image">';
+          html +=     '<img src="' + data.primaryImage + '"></img>';
+          html +=   '</div>';
+          html += '</div>';
+
+          $("#met").html(html);
+
+        }//close success
+
+      });// close ajax
+
+    }//close for loop
+
+  });// close click function
 
 });//close wrapper
