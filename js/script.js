@@ -10,6 +10,11 @@
     lng: -72.5448498
   };
 
+  var cuscoCitySquare = {
+    lat: -13.5168236,
+    lng: -71.9790029
+  };
+
 
   function initMap() {
 
@@ -145,7 +150,7 @@
 
     var panorama = new google.maps.StreetViewPanorama(
         document.getElementById('pano'), {
-          position: machuPicchuPano,
+          position: cuscoCitySquare,
           pov: {
             heading: 3.11,
             pitch: 5
@@ -160,6 +165,23 @@
 $(function(){
 
   console.log('scripts loaded');
+
+  //WIKIPEDIA API
+  wikiUrl= '/w/api.php?action=query&format=json&maxlag=&prop=images%7Ccategories%7Ccategoryinfo&list=&meta=&titles=cusco&imlimit=20' ;
+  wikiData = '';
+
+  $.ajax({
+    type: 'GET',
+    url: wikiUrl,
+    data: wikiData,
+    dataType: 'json',
+    async: true,
+    success: function(wikiData){
+      console.log(wikiData);
+
+
+    }//close success
+  });// close ajax
 
   //urls of textiles
   var object1= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/319574';
@@ -224,97 +246,117 @@ $(function(){
     var data = [];
     var html = '';
     //for loop running through the array of textiles
-    for (i=0;i<metObjectArray.length; i++){
-      $.ajax({
-        type: 'GET',
-        url: metObjectArray[i],
-        data: data,
-        dataType: 'json',
-        async: true,
-        success: function(data){
-          console.log(data);
-
-          html += '<div class="object">';
-          html +=   '<div class="image">';
-          html +=     '<img src="' + data.primaryImage + '"></img>';
-          html +=   '</div>';
-          html += '</div>';
-
-          $("#met").html(html);
-
-        }//close success
-      });// close ajax
-    }//close for loop
-  });// close click function
+      for (i=0;i<metObjectArray.length; i++){
+        $.ajax({
+          type: 'GET',
+          url: metObjectArray[i],
+          data: data,
+          dataType: 'json',
+          async: true,
+          success: function(data){
+            console.log(data);
 
 
+            html += '<div class="object">';
+            html += '<a href="' + data.objectURL +'" target="_blank">';
+            html +=   '<div class="image">';
+            html +=     '<img src="' + data.primaryImage + '"></img>';
+            html +=   '</div>';
+            html += '</a>';
+            html +=   '<div class="object-info">';
+            html +=     '<h3>'+ data.title +'</h3>';
+            html +=     '<p><b>Date: </b>'+ data.objectDate +'</p>';
+            html +=     '<p><b>Material: </b>'+ data.medium +'</p>';
+            html +=   '</div>';
+            html += '</div>';
 
-  //click GOLD button
 
+            $("#met").html(html);
 
-  $('#gold-button').click(function(){
-      console.log('gold button clicked');
-  //variables
-  var data = [];
-  var html = '';
-  //for loop looping through metGoldArray
-    for (i=0;i<metGoldArray.length; i++){
-      $.ajax({
-        type: 'GET',
-        url: metGoldArray[i],
-        data: data,
-        dataType: 'json',
-        async: true,
-        success: function(data){
-          console.log(data);
-
-          html += '<div class="object">';
-          html +=   '<div class="image">';
-          html +=     '<img src="' + data.primaryImage + '"></img>';
-          html +=   '</div>';
-          html += '</div>';
-
-          $("#met").html(html);
-
-        }//close success
-      });// close ajax
-    }//close for loop
-  });// close click function
+          }//close success
+        });// close ajax
+      }//close for loop
+    });// close click function
 
 
 
-  //click CERAMICS button
+    //click GOLD button
 
-  $('#ceramics-button').click(function(){
-      console.log('gold button clicked');
-  //variables
-  var data = [];
-  var html = '';
-  //for loop looping through metCeramicsArray
-    for (i=0;i<metCeramicsArray.length; i++){
-      $.ajax({
-        type: 'GET',
-        url: metCeramicsArray[i],
-        data: data,
-        dataType: 'json',
-        async: true,
-        success: function(data){
-          console.log(data);
 
-          html += '<div class="object">';
-          html +=   '<div class="image">';
-          html +=     '<img src="' + data.primaryImage + '"></img>';
-          html +=   '</div>';
-          html += '</div>';
+    $('#gold-button').click(function(){
+        console.log('gold button clicked');
+    //variables
+    var data = [];
+    var html = '';
+    //for loop looping through metGoldArray
+      for (i=0;i<metGoldArray.length; i++){
+        $.ajax({
+          type: 'GET',
+          url: metGoldArray[i],
+          data: data,
+          dataType: 'json',
+          async: true,
+          success: function(data){
+            console.log(data);
 
-          $("#met").html(html);
+            html += '<div class="object">';
+            html += '<a href="' + data.objectURL +'" target="_blank">';
+            html +=   '<div class="image">';
+            html +=     '<img src="' + data.primaryImage + '"></img>';
+            html +=   '</div>';
+            html += '</a>';
+            html +=   '<div class="object-info">';
+            html +=     '<h3>'+ data.title +'</h3>';
+            html +=     '<p><b>Date: </b>'+ data.objectDate +'</p>';
+            html +=     '<p><b>Material: </b>'+ data.medium +'</p>';
+            html +=   '</div>';
+            html += '</div>';
 
-        }//close success
+            $("#met").html(html);
 
-      });// close ajax
+          }//close success
+        });// close ajax
+      }//close for loop
+    });// close click function
 
-    }//close for loop
 
-  });// close click function
+
+    //click CERAMICS button
+
+    $('#ceramics-button').click(function(){
+        console.log('gold button clicked');
+    //variables
+    var data = [];
+    var html = '';
+    //for loop looping through metCeramicsArray
+      for (i=0;i<metCeramicsArray.length; i++){
+        $.ajax({
+          type: 'GET',
+          url: metCeramicsArray[i],
+          data: data,
+          dataType: 'json',
+          async: true,
+          success: function(data){
+            console.log(data);
+
+            html += '<div class="object">';
+            html += '<a href="' + data.objectURL +'" target="_blank">';
+            html +=   '<div class="image">';
+            html +=     '<img src="' + data.primaryImage + '"></img>';
+            html +=   '</div>';
+            html += '</a>';
+            html +=   '<div class="object-info">';
+            html +=     '<h3>'+ data.title +'</h3>';
+            html +=     '<p><b>Date: </b>'+ data.objectDate +'</p>';
+            html +=     '<p><b>Material: </b>'+ data.medium +'</p>';
+            html +=   '</div>';
+            html += '</div>';
+
+            $("#met").html(html);
+
+          }//close success
+        });// close ajax
+      }//close for loop
+    });// close click function
 
 });//close wrapper
