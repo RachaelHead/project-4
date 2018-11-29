@@ -21,13 +21,15 @@ p{
   height:500px;
 }
 
-#map{
+#big-map{
   grid-column: 1/2;
   grid-row: 3/4;
-  height:500px;
+  height:600px;
+  width: 300px;
+  margin: 32px;
 }
 
-#map-info{
+#smal-map{
   grid-column: 2/3;
   grid-row: 3/4;
   height:500px;

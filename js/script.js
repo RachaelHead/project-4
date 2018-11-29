@@ -15,19 +15,54 @@
     lng: -71.9790029
   };
 
+  var tipon = {
+    lat: -13.5658324,
+    lng: -71.7865514
+  };
 
   function initMap() {
 
     // The map, centered at Machu Picchu
     var map = new google.maps.Map(
-        document.getElementById('map'), {
-          zoom: 3.5,
+        document.getElementById('small-map'), {
+          zoom: 4,
           center: machuPicchu
     });//close map
 
     // The marker, positioned at Machu Picchu
-    var marker = new google.maps.Marker({
+    var marker1 = new google.maps.Marker({
       position: machuPicchu,
+      map: map,
+      animation: google.maps.Animation.DROP,
+      icon: ''
+    });//close marker
+
+    var marker2 = new google.maps.Marker({
+      position: cuscoCitySquare,
+      map: map,
+      animation: google.maps.Animation.DROP,
+      icon: ''
+    });//close marker
+
+
+  function initMap() {
+
+    // The map, centered at Machu Picchu
+    var map = new google.maps.Map(
+        document.getElementById('big-map'), {
+          zoom: 4,
+          center: machuPicchu
+    });//close map
+
+    // The marker, positioned at Machu Picchu
+    var marker1 = new google.maps.Marker({
+      position: machuPicchu,
+      map: map,
+      icon: ''
+    });//close marker
+
+    var marker2 = new google.maps.Marker({
+      position: cuscoCitySquare,
       map: map,
       animation: google.maps.Animation.DROP,
       icon: ''
