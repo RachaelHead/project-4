@@ -1,5 +1,5 @@
 
-  // The location of Uluru
+  // The locations
   var machuPicchu = {
     lat: -13.1631412,
     lng: -72.5471516
@@ -20,31 +20,8 @@
     lng: -71.7865514
   };
 
-  function initMap() {
 
-    // The map, centered at Machu Picchu
-    var map = new google.maps.Map(
-        document.getElementById('small-map'), {
-          zoom: 4,
-          center: machuPicchu
-    });//close map
-
-    // The marker, positioned at Machu Picchu
-    var marker1 = new google.maps.Marker({
-      position: machuPicchu,
-      map: map,
-      animation: google.maps.Animation.DROP,
-      icon: ''
-    });//close marker
-
-    var marker2 = new google.maps.Marker({
-      position: cuscoCitySquare,
-      map: map,
-      animation: google.maps.Animation.DROP,
-      icon: ''
-    });//close marker
-
-
+//INITIALIZE LARGE MAP
   function initMap() {
 
     // The map, centered at Machu Picchu
@@ -193,30 +170,118 @@
         });//close panorama
     map.setStreetView(panorama);
 
+    marker1.addListener('click', function() {
+    console.log('marker1 clicked');
+    //YOUTUBE API
+    // 2. This code loads the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // 3. This function creates an <iframe> (and YouTube player)
+        //    after the API code downloads.
+        var player;
+        function onYouTubeIframeAPIReady() {
+
+
+          player = new YT.Player('player', {
+            height: '390',
+            width: '640',
+            videoId: 'cnMa-Sm9H4k&t',
+            events: {
+              'onReady': onPlayerReady,
+              'onStateChange': onPlayerStateChange
+            }
+          });
+        }
+
+        // 4. The API will call this function when the video player is ready.
+        function onPlayerReady(event) {
+          event.target.playVideo();
+        }
+
+        // 5. The API calls this function when the player's state changes.
+        //    The function indicates that when playing a video (state=1),
+        //    the player should play for six seconds and then stop.
+        var done = false;
+        function onPlayerStateChange(event) {
+          if (event.data == YT.PlayerState.PLAYING && !done) {
+            setTimeout(stopVideo, 6000);
+            done = true;
+          }
+        }
+        function stopVideo() {
+          player.stopVideo();
+        }
+
+    // END YOUTUBE API
+  });// close marker1 click function
+
 
 } // close initMap
+
+var videoId='';
+
+  //click events for youtube API
+  $('#player').click(function(){
+    console.log('marker2 clicked');
+
+//YOUTUBE API
+// 2. This code loads the IFrame Player API code asynchronously.
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    var player;
+    function onYouTubeIframeAPIReady() {
+
+
+      player = new YT.Player('player', {
+        height: '390',
+        width: '640',
+        videoId: 'cnMa-Sm9H4k&t',
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    // 4. The API will call this function when the video player is ready.
+    function onPlayerReady(event) {
+      event.target.playVideo();
+    }
+
+    // 5. The API calls this function when the player's state changes.
+    //    The function indicates that when playing a video (state=1),
+    //    the player should play for six seconds and then stop.
+    var done = false;
+    function onPlayerStateChange(event) {
+      if (event.data == YT.PlayerState.PLAYING && !done) {
+        setTimeout(stopVideo, 6000);
+        done = true;
+      }
+    }
+    function stopVideo() {
+      player.stopVideo();
+    }
+
+  });//close marker2 click function
+
+// END YOUTUBE API
 
 
 $(function(){
 
   console.log('scripts loaded');
 
-  //WIKIPEDIA API
-  wikiUrl= '/w/api.php?action=query&format=json&maxlag=&prop=images%7Ccategories%7Ccategoryinfo&list=&meta=&titles=cusco&imlimit=20' ;
-  wikiData = '';
-
-  $.ajax({
-    type: 'GET',
-    url: wikiUrl,
-    data: wikiData,
-    dataType: 'json',
-    async: true,
-    success: function(wikiData){
-      console.log(wikiData);
-
-
-    }//close success
-  });// close ajax
+  //MET API
 
   //urls of textiles
   var object1= 'https://collectionapi.metmuseum.org/public/collection/v1/objects/319574';
