@@ -250,9 +250,9 @@
 
     // empire header
     var ourScene = new ScrollMagic.Scene({
-      triggerElement: '#map-header'
+      triggerElement: '#map-info'
     })
-    .setClassToggle('#map-header', 'fade-in') // map header fade in
+    .setClassToggle('#map-info', 'fade-in') // map header fade in
     .addTo(controller);
 
     var ourScene = new ScrollMagic.Scene({
@@ -263,9 +263,16 @@
 
     // art header
     var ourScene = new ScrollMagic.Scene({
-      triggerElement: '#art-header'
+      triggerElement: '#art-info'
     })
-    .setClassToggle('#art-header', 'fade-in') // map header fade in
+    .setClassToggle('#art-info', 'fade-in') // map header fade in
+    .addTo(controller);
+
+    //player
+    var ourScene = new ScrollMagic.Scene({
+      triggerElement: '#player'
+    })
+    .setClassToggle('body', 'black') //make background white
     .addTo(controller);
 
     // met header
