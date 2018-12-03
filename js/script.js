@@ -222,20 +222,7 @@
       }
     }
 
-    //plays video when you scroll to it
-
-  /*  $(window).scroll(function() {
-        $("iframe").each( function() {
-            if( $(window).scrollTop() > $(this).offset().top - 200 ) {
-                $('#video').css('opacity',1);
-                player.playVideo();
-            }
-            if ( $(window).scrollTop() > $(this).offset().bottom - 700 ){
-                $('#video').css('opacity',0);
-                player.stopVideo();
-            }
-        });
-    });//close window scroll function */
+    //plays video when you mouse over #video
 
     $('#video')
     .mouseenter(function() {
