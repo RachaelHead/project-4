@@ -239,18 +239,25 @@ p{
   padding-bottom:30px;
 }
 
-button {
-  font-family: 'Noto Sans SC', sans-serif;
-  font-size: 16px;
-  background-color: #fff;
-  height:48px;
-  border-color: #FF6010;
-  padding: 1px 16px;
+.button{
+  flex-direction: column;
+  padding:16px;
 }
 
-button:clicked{
-  background-color: #FF6010;
-  color: #fff;
+.button:hover{
+  font-weight: 700;
+}
+
+.button img{
+  max-width: 70px;
+  max-height: 70px;
+  margin-bottom: 8px;
+}
+
+.button img:hover{
+  border-radius: 40px;
+  box-shadow: 0px 0px 8px #A4998E;
+  cursor: pointer;
 }
 
 #textiles-button{
