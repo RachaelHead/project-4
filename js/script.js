@@ -193,7 +193,7 @@
       player = new YT.Player('player', {
         height: '390',
         width: '640',
-        videoId: 'cnMa-Sm9H4k&t',
+        videoId: '-uR88wDML8Q',
         events: {
           'onReady': onPlayerReady,
           'onStateChange': onPlayerStateChange
@@ -405,5 +405,16 @@ $(function(){
         });// close ajax
       }//close for loop
     });// close click function
+
+// SCROLLMAGIC
+    //Init ScrollMagic
+    var controller = new ScrollMagic.Controller();
+
+    // first timeline element
+    var ourScene = new ScrollMagic.Scene({
+      triggerElement: '#met-intro'
+    })
+    .setClassToggle('#met-intro', 'fade-in') //add class to project01
+    .addTo(controller);
 
 });//close wrapper
