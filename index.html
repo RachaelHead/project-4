@@ -15,40 +15,48 @@
       <h1> the <em class="incan"> INCAN </em> empire</h1>
     </div>
 
-    <div id="map-header" class="flex heading-2">
+<!--- GOOGLE MAPS API --->
 
+    <div class="map-area">
+
+      <div id="map-header" class="flex map-header heading-2">
+        <h2>The Reign of the Empire</h2>
+      </div>
+
+      <div id="big-map" class="flex right">
+
+      </div>
+
+      <div id="map-info" class="flex map-info">
+        <div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pharetra molestie sem, sit amet dictum nibh ornare id. Ut dapibus, elit ut varius pretium, purus mi iaculis lacus, quis rhoncus libero odio ac nisl. Donec accumsan tincidunt euismod. Maecenas aliquam malesuada erat in vestibulum. Quisque odio ipsum, dapibus a ex at, pellentesque efficitur neque. Nam tristique, dui id eleifend imperdiet, elit metus imperdiet sem, vel convallis felis lorem dignissim erat. Vestibulum sed odio vel turpis tempus eleifend ac id massa.</p>
+        <p>Nulla sodales lorem non neque interdum, eu scelerisque mauris elementum. Donec faucibus turpis nec diam gravida vulputate. Praesent volutpat dapibus purus quis iaculis. Sed quis lorem id odio egestas dictum sed a nisi. Aliquam mauris diam, mollis eget malesuada non, pulvinar vitae ante. Duis consequat sit amet lacus cursus faucibus. Etiam at interdum orci. Donec quis turpis metus. Nulla facilisi. Quisque molestie lacus et posuere cursus. Quisque vehicula, enim vitae mollis dignissim, est velit tristique ex, vehicula porta risus ante vel massa. Proin posuere ac neque volutpat porttitor. Nullam eget vestibulum ex. Aliquam erat volutpat.</p>
+        </div>
+      </div>
     </div>
 
-    <div id="big-map" class="flex-right">
+<!--- ART SECTION --->
 
+    <div id="art-info" >
+      <div class="flex-center heading-2">
+        <div class="art-text">
+        <h2>The Art of the Empire</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pharetra molestie sem, sit amet dictum nibh ornare id. Ut dapibus, elit ut varius pretium, purus mi iaculis lacus, quis rhoncus libero odio ac nisl. Donec accumsan tincidunt euismod. Maecenas aliquam malesuada erat in vestibulum. Quisque odio ipsum, dapibus a ex at, pellentesque efficitur neque. Nam tristique, dui id eleifend imperdiet, elit metus imperdiet sem, vel convallis felis lorem dignissim erat. Vestibulum sed odio vel turpis tempus eleifend ac id massa.</p>
+        </div>
+      </div>
     </div>
 
-    <div id="map-info" class="flex map-info">
-      <div>
-      <h2>The Reign of the Empire</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pharetra molestie sem, sit amet dictum nibh ornare id. Ut dapibus, elit ut varius pretium, purus mi iaculis lacus, quis rhoncus libero odio ac nisl. Donec accumsan tincidunt euismod. Maecenas aliquam malesuada erat in vestibulum. Quisque odio ipsum, dapibus a ex at, pellentesque efficitur neque. Nam tristique, dui id eleifend imperdiet, elit metus imperdiet sem, vel convallis felis lorem dignissim erat. Vestibulum sed odio vel turpis tempus eleifend ac id massa.</p>
-      <p>Nulla sodales lorem non neque interdum, eu scelerisque mauris elementum. Donec faucibus turpis nec diam gravida vulputate. Praesent volutpat dapibus purus quis iaculis. Sed quis lorem id odio egestas dictum sed a nisi. Aliquam mauris diam, mollis eget malesuada non, pulvinar vitae ante. Duis consequat sit amet lacus cursus faucibus. Etiam at interdum orci. Donec quis turpis metus. Nulla facilisi. Quisque molestie lacus et posuere cursus. Quisque vehicula, enim vitae mollis dignissim, est velit tristique ex, vehicula porta risus ante vel massa. Proin posuere ac neque volutpat porttitor. Nullam eget vestibulum ex. Aliquam erat volutpat.</p>
-    </div>
+<!--- YOUTUBE API --->
+
+    <div id="video" class="video flex-center">
+      <!--- Youtube API replaces this div with an iframe --->
+      <div id="player" >
+      </div>
     </div>
 
-    <div id="art-header" class="flex ">
+<!--- MET API --->
 
-    </div>
-
-    <div id="art-info" class="heading-2">
-      <div class="flex">
-      <h2>The Art of the Empire</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pharetra molestie sem, sit amet dictum nibh ornare id. Ut dapibus, elit ut varius pretium, purus mi iaculis lacus, quis rhoncus libero odio ac nisl. Donec accumsan tincidunt euismod. Maecenas aliquam malesuada erat in vestibulum. Quisque odio ipsum, dapibus a ex at, pellentesque efficitur neque. Nam tristique, dui id eleifend imperdiet, elit metus imperdiet sem, vel convallis felis lorem dignissim erat. Vestibulum sed odio vel turpis tempus eleifend ac id massa.</p>
-    </div>
-    </div>
-
-    <div class="flex">
-    <div id="player" >
-
-    </div>
-    </div>
-
-    <div id="met-intro" class="intro">
+    <div id="met-intro" class="flex intro">
       <h2>The Empire's Art</h2>
       <p>Art was central to the empire. Click on an art form to learn more about it and see pieces from the Met's Collection.</p>
       <div class="buttons flex">
@@ -59,12 +67,10 @@
     </div>
 
     <div id="met" class="flex">
-
+      <!--- The Met API adds objects to this div when the user clicks an art type --->
     </div>
 
-    <div id="thank-you">
 
-    </div>
 
     <!--- JQuery Script --->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

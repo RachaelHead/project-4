@@ -16,6 +16,10 @@ body.black{
   background-color: #000000;
 }
 
+body.tan{
+  background-color: #F3E0B3;
+}
+
 h1{
   font-size: 40px;
   font-weight: 100;
@@ -54,6 +58,27 @@ p{
   align-items: flex-start;
 }
 
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-space-between{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex{
+  display: flex;
+}
+
+.map-header{
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
 /* FLEX SPECIFICATIONS END */
 
 /* HEADER SPECIFICATIONS */
@@ -83,18 +108,18 @@ p{
 
 /* MAP SPECIFICATIONS */
 #map-header{
-  grid-column: 1/3;
+  grid-column: 2/3;
   grid-row: 2/3;
 }
 
 .heading-2{
   opacity:0;
-  transform: translateY(10px);
+  transform: translateX(30px);
   transition: all 1s ease-out;
 }
 
 .heading-2.fade-in{
-  transform: translateY(0px);
+  transform: translateX(0px);
   opacity:1;
 }
 
@@ -105,13 +130,13 @@ p{
 }
 
 .map-info.fade-in{
-  transform: translateY(0px);
+  transform: translateX(0px);
   opacity:1;
 }
 
 #big-map{
   grid-column: 1/2;
-  grid-row: 3/4;
+  grid-row: 2/4;
   height:600px;
   width: 300px;
   margin: 32px;
@@ -134,14 +159,22 @@ p{
 #art-info{
   grid-column: 1/3;
   grid-row: 5/6;
-  height: 500px;
+  height: 600px;
   max-width: 500px;
 }
 
-#player{
+.art-text{
+  flex-basis: 75%;
+}
+
+#video{
   grid-column: 1/3;
   grid-row: 6/7;
   height: 500px;
+}
+
+iframe.fade-out{
+  background: #000
 }
 
 /* ART SPECIFICATIONS END */
@@ -151,6 +184,7 @@ p{
 #met-intro{
   grid-column: 1/3;
   grid-row: 7/8;
+  height: 300px;
 }
 
 #met{

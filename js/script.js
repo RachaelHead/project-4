@@ -222,17 +222,19 @@
       }
     }
 
+    //plays video when you scroll to it
+
     $(window).scroll(function() {
         $("iframe").each( function() {
             if( $(window).scrollTop() > $(this).offset().top - 200 ) {
                 $(this).css('opacity',1);
                 player.playVideo();
-            } else {
-                $(this).css('opacity',0);
+            } else{
+                $(this).css('background','#000000');
                 player.stopVideo();
             }
         });
-    });
+    });//close window scroll function
 
 // END YOUTUBE API
 
@@ -250,7 +252,13 @@
 
     // empire header
     var ourScene = new ScrollMagic.Scene({
-      triggerElement: '#map-info'
+      triggerElement: '#map-header'
+    })
+    .setClassToggle('#map-header', 'fade-in') // map header fade in
+    .addTo(controller);
+
+    var ourScene = new ScrollMagic.Scene({
+      triggerElement: '#map-header'
     })
     .setClassToggle('#map-info', 'fade-in') // map header fade in
     .addTo(controller);
@@ -270,16 +278,28 @@
 
     //player
     var ourScene = new ScrollMagic.Scene({
-      triggerElement: '#player'
+      triggerElement: '#video'
     })
-    .setClassToggle('body', 'black') //make background white
+    .setClassToggle('body', 'black') //make background black
     .addTo(controller);
 
     // met header
     var ourScene = new ScrollMagic.Scene({
       triggerElement: '#met-intro'
     })
+    .setClassToggle('iframe', 'fade-out') //met header fade in
+    .addTo(controller);
+
+    var ourScene = new ScrollMagic.Scene({
+      triggerElement: '#met-intro'
+    })
     .setClassToggle('#met-intro', 'fade-in') //met header fade in
+    .addTo(controller);
+
+    var ourScene = new ScrollMagic.Scene({
+      triggerElement: '#met-intro'
+    })
+    .setClassToggle('body', 'tan') //make background white
     .addTo(controller);
 
 
