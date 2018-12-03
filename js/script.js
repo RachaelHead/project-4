@@ -230,7 +230,7 @@
                 $(this).css('opacity',1);
                 player.playVideo();
             } else{
-                $(this).css('background','#000000');
+                $('#video').css('opacity',0);
                 player.stopVideo();
             }
         });
@@ -285,9 +285,9 @@
 
     // met header
     var ourScene = new ScrollMagic.Scene({
-      triggerElement: '#met-intro'
+      triggerElement: '#met'
     })
-    .setClassToggle('iframe', 'fade-out') //met header fade in
+    .setClassToggle('#video', 'fade-out') //add fade-out class to video which sets opacity to 0
     .addTo(controller);
 
     var ourScene = new ScrollMagic.Scene({

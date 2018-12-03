@@ -167,15 +167,23 @@ p{
   flex-basis: 75%;
 }
 
+.art-info{
+  opacity:0;
+  transform: translatey(30px);
+  transition: all 1s ease-out;
+}
+
+.art-info.fade-in{
+  transform: translateX(0px);
+  opacity:1;
+}
+
 #video{
   grid-column: 1/3;
   grid-row: 6/7;
   height: 500px;
 }
 
-iframe.fade-out{
-  background: #000
-}
 
 /* ART SPECIFICATIONS END */
 
