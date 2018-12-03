@@ -224,17 +224,26 @@
 
     //plays video when you scroll to it
 
-    $(window).scroll(function() {
+  /*  $(window).scroll(function() {
         $("iframe").each( function() {
             if( $(window).scrollTop() > $(this).offset().top - 200 ) {
-                $(this).css('opacity',1);
+                $('#video').css('opacity',1);
                 player.playVideo();
-            } else{
+            }
+            if ( $(window).scrollTop() > $(this).offset().bottom - 700 ){
                 $('#video').css('opacity',0);
                 player.stopVideo();
             }
         });
-    });//close window scroll function
+    });//close window scroll function */
+
+    $('#video')
+    .mouseenter(function() {
+      player.playVideo();
+    })
+    .mouseleave(function() {
+     player.stopVideo();
+    });
 
 // END YOUTUBE API
 
@@ -260,20 +269,27 @@
     var ourScene = new ScrollMagic.Scene({
       triggerElement: '#map-header'
     })
-    .setClassToggle('#map-info', 'fade-in') // map header fade in
+    .setClassToggle('#map-info', 'fade-in') // map info fade in
     .addTo(controller);
 
     var ourScene = new ScrollMagic.Scene({
       triggerElement: '#map-header'
     })
-    .setClassToggle('body', 'white') //make background white
+    .setClassToggle('body', 'white') //make background white when you get to the map section
     .addTo(controller);
 
     // art header
     var ourScene = new ScrollMagic.Scene({
-      triggerElement: '#art-info'
+      triggerElement: '#art-section',
+      offset: 150
     })
-    .setClassToggle('#art-info', 'fade-in') // map header fade in
+    .setClassToggle('#art-section', 'fade-in') // art section fade in
+    .addTo(controller);
+
+    var ourScene = new ScrollMagic.Scene({
+      triggerElement: '#art-section',
+    })
+    .setClassToggle('body', 'tan') // make background tan when you get to the art intro
     .addTo(controller);
 
     //player
@@ -285,12 +301,6 @@
 
     // met header
     var ourScene = new ScrollMagic.Scene({
-      triggerElement: '#met'
-    })
-    .setClassToggle('#video', 'fade-out') //add fade-out class to video which sets opacity to 0
-    .addTo(controller);
-
-    var ourScene = new ScrollMagic.Scene({
       triggerElement: '#met-intro'
     })
     .setClassToggle('#met-intro', 'fade-in') //met header fade in
@@ -299,7 +309,7 @@
     var ourScene = new ScrollMagic.Scene({
       triggerElement: '#met-intro'
     })
-    .setClassToggle('body', 'tan') //make background white
+    .setClassToggle('body', 'tan-again') //make background white
     .addTo(controller);
 
 
