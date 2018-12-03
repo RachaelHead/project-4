@@ -178,6 +178,7 @@
 } // close initMap
 
 
+
 //YOUTUBE API
 // 2. This code loads the IFrame Player API code asynchronously.
     var tag = document.createElement('script');
@@ -194,6 +195,11 @@
         height: '390',
         width: '640',
         videoId: '-uR88wDML8Q',
+        playerVars: {
+          'cc_load_policy':1,
+          'cc_lang_pref': 'en',
+          autoplay : 0
+        },
         events: {
           'onReady': onPlayerReady,
           'onStateChange': onPlayerStateChange
@@ -203,7 +209,7 @@
 
     // 4. The API will call this function when the video player is ready.
     function onPlayerReady(event) {
-      event.target.playVideo();
+
     }
 
     // 5. The API calls this function when the player's state changes.
@@ -212,15 +218,64 @@
     var done = false;
     function onPlayerStateChange(event) {
       if (event.data == YT.PlayerState.PLAYING && !done) {
-        setTimeout(stopVideo, 6000);
         done = true;
       }
     }
-    function stopVideo() {
-      player.stopVideo();
-    }
+
+    $(window).scroll(function() {
+        $("iframe").each( function() {
+            if( $(window).scrollTop() > $(this).offset().top - 200 ) {
+                $(this).css('opacity',1);
+                player.playVideo();
+            } else {
+                $(this).css('opacity',0);
+                player.stopVideo();
+            }
+        });
+    });
 
 // END YOUTUBE API
+
+// SCROLLMAGIC
+    //Init ScrollMagic
+    var controller = new ScrollMagic.Controller();
+
+    // page header
+    var ourScene = new ScrollMagic.Scene({
+      triggerElement: '#header',
+      offset: 350
+    })
+    .setClassToggle('#header', 'fade-out') //main header fade in
+    .addTo(controller);
+
+    // empire header
+    var ourScene = new ScrollMagic.Scene({
+      triggerElement: '#map-header'
+    })
+    .setClassToggle('#map-header', 'fade-in') // map header fade in
+    .addTo(controller);
+
+    var ourScene = new ScrollMagic.Scene({
+      triggerElement: '#map-header'
+    })
+    .setClassToggle('body', 'white') //make background white
+    .addTo(controller);
+
+    // art header
+    var ourScene = new ScrollMagic.Scene({
+      triggerElement: '#art-header'
+    })
+    .setClassToggle('#art-header', 'fade-in') // map header fade in
+    .addTo(controller);
+
+    // met header
+    var ourScene = new ScrollMagic.Scene({
+      triggerElement: '#met-intro'
+    })
+    .setClassToggle('#met-intro', 'fade-in') //met header fade in
+    .addTo(controller);
+
+
 
 
 
@@ -406,15 +461,6 @@ $(function(){
       }//close for loop
     });// close click function
 
-// SCROLLMAGIC
-    //Init ScrollMagic
-    var controller = new ScrollMagic.Controller();
 
-    // first timeline element
-    var ourScene = new ScrollMagic.Scene({
-      triggerElement: '#met-intro'
-    })
-    .setClassToggle('#met-intro', 'fade-in') //add class to project01
-    .addTo(controller);
 
 });//close wrapper
