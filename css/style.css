@@ -85,7 +85,7 @@ p{
 #header{
   grid-column: 1/3;
   grid-row: 1/2;
-  height: 600px;
+  height: 800px;
 }
 
 .incan{
@@ -97,6 +97,7 @@ p{
   transform: translateY(0px);
   opacity:1;
   transition: all 1s ease-out;
+  justify-content: center;
 }
 
 .header.fade-out{
