@@ -12,8 +12,6 @@
 
 
 
-//INITIALIZE LARGE MAP
-  function initMap() {
 
     // The map, centered at Machu Picchu
     var map = new google.maps.Map(
@@ -128,7 +126,7 @@
       {lat: 1.371370,    lng:  -78.904452},
       {lat: 1.430158,    lng:  -78.809703},
       {lat: 1.645750,    lng: -79.005708}
-    ];
+    ];//close polygon coordinates
 
     // Construct the polygon.
     var incaEmpire = new google.maps.Polygon({
@@ -139,12 +137,15 @@
       fillColor: '#FF0000',
       fillOpacity: 0.35
     });
+
     incaEmpire.setMap(map);
 
     //click function for marker
-
     marker1.addListener('click', function() {
     console.log('marker1 clicked');
+
+    function initMap() {
+
     var map = new google.maps.Map(
         document.getElementById('big-map'), {
           zoom: 8,
@@ -268,12 +269,11 @@
       fillColor: '#FF0000',
       fillOpacity: 0.35
     });//close polygon
-
     incaEmpire.setMap(map);
+
+    }//close initMap
   });// close marker1 click function
 
-
-} // close initMap
 
 
 
