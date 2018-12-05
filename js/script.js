@@ -1,23 +1,9 @@
 
   // The locations
-  var machuPicchu = {
-    lat: -13.1631412,
-    lng: -72.5471516
-  };
-
-  var machuPicchuPano = {
-    lat: -13.1649599,
-    lng: -72.5448498
-  };
 
   var cuscoCitySquare = {
     lat: -13.5168236,
     lng: -71.9790029
-  };
-
-  var tipon = {
-    lat: -13.5658324,
-    lng: -71.7865514
   };
 
 
@@ -31,14 +17,7 @@
           center: machuPicchu
     });//close map
 
-    // The marker, positioned at Machu Picchu
     var marker1 = new google.maps.Marker({
-      position: machuPicchu,
-      map: map,
-      icon: ''
-    });//close marker
-
-    var marker2 = new google.maps.Marker({
       position: cuscoCitySquare,
       map: map,
       animation: google.maps.Animation.DROP,
@@ -156,19 +135,6 @@
       fillOpacity: 0.35
     });
     incaEmpire.setMap(map);
-
-
-    //street view
-
-    var panorama = new google.maps.StreetViewPanorama(
-        document.getElementById('pano'), {
-          position: cuscoCitySquare,
-          pov: {
-            heading: 3.11,
-            pitch: 5
-          }
-        });//close panorama
-    map.setStreetView(panorama);
 
     marker1.addListener('click', function() {
     console.log('marker1 clicked');
@@ -298,9 +264,6 @@
     })
     .setClassToggle('body', 'tan-again') //make background white
     .addTo(controller);
-
-
-
 
 
 $(function(){
