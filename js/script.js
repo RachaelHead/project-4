@@ -1,10 +1,15 @@
 
   // The locations
+  var machuPicchu = {
+    lat: -13.1631412,
+    lng: -72.5471516
+  };
 
   var cuscoCitySquare = {
     lat: -13.5168236,
     lng: -71.9790029
   };
+
 
 
 //INITIALIZE LARGE MAP
@@ -135,6 +140,7 @@
       fillOpacity: 0.35
     });
     incaEmpire.setMap(map);
+
 
     marker1.addListener('click', function() {
     console.log('marker1 clicked');
