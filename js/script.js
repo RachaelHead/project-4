@@ -144,8 +144,6 @@
     marker1.addListener('click', function() {
     console.log('marker1 clicked');
 
-    function initMap() {
-
     var map = new google.maps.Map(
         document.getElementById('big-map'), {
           zoom: 8,
@@ -271,7 +269,6 @@
     });//close polygon
     incaEmpire.setMap(map);
 
-    }//close initMap
   });// close marker1 click function
 
 
