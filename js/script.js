@@ -10,9 +10,12 @@
     lng: -71.9790029
   };
 
+  var map;
 
 
 
+
+  function initMap() {
     // The map, centered at Machu Picchu
     var map = new google.maps.Map(
         document.getElementById('big-map'), {
@@ -270,7 +273,7 @@
     incaEmpire.setMap(map);
 
   });// close marker1 click function
-
+}//close intimap
 
 
 
